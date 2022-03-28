@@ -20,4 +20,8 @@ public class Percolation {
             }
         }
     }
+
+    private int mapTo2d(int row, int col) {
+        return n * (row - 1) + (col - 1);
+    }
 }
