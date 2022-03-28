@@ -28,4 +28,14 @@ public class PercolationStats {
         meanVal = StdStats.mean(threshold);
         stdDev = StdStats.stddev(threshold);
     }
+
+    // sample mean of percolation threshold
+    public double mean(){
+        return meanVal;
+    }
+
+    // sample standard deviation of percolation threshold
+    public double stddev(){
+        return stdDev;
+    }
 }
