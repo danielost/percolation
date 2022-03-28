@@ -61,4 +61,12 @@ public class Percolation {
         }
         else return sites[row - 1][col - 1];
     }
+
+    // is the site (row, col) full?
+    public boolean isFull(int row, int col){
+        if (row < 1 || row > n || col < 1 || col > n) {
+            throw new IllegalArgumentException();
+        }
+        else return wqu.find(mapTo1d(row,col)) == wqu.find(n * n);
+    }
 }
