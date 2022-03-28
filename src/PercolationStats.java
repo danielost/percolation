@@ -48,4 +48,15 @@ public class PercolationStats {
     public double confidenceHi(){
         return meanVal + shu * stdDev / Math.sqrt(T);
     }
+
+    // test client
+    public static void main(String[] args){
+        int n = StdIn.readInt();
+        int T = StdIn.readInt();
+        PercolationStats prc = new PercolationStats(n, T);
+        System.out.println(prc.mean());
+        System.out.println(prc.stddev());
+        System.out.println(prc.confidenceLo());
+        System.out.println(prc.confidenceHi());
+    }
 }
