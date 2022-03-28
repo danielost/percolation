@@ -69,4 +69,9 @@ public class Percolation {
         }
         else return wqu.find(mapTo1d(row,col)) == wqu.find(n * n);
     }
+
+    // returns the number of open sites
+    public int numberOfOpenSites(){
+        return openSites;
+    }
 }
