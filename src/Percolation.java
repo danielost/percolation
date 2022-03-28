@@ -21,7 +21,36 @@ public class Percolation {
         }
     }
 
-    private int mapTo2d(int row, int col) {
+    private int mapTo1d(int row, int col) {
         return n * (row - 1) + (col - 1);
+    }
+
+    public void open(int row, int col) {
+        if (row < 1 || row > n || col < 1 || col > n) {
+            throw new IllegalArgumentException();
+        }
+        else if (!sites[row - 1][col - 1]) {
+            sites[row - 1][col - 1] = true;
+            int curr = mapTo1d(row, col);
+            if (row == 1) {
+                wqu.union(curr, n * n);
+            }
+            if (row == n) {
+                wqu.union(curr, n * n + 1);
+            }
+            if (col > 1 && sites[row - 1][col - 2]) {
+                wqu.union(curr, mapTo1d(row, col - 1));
+            }
+            if (col < n && sites[row - 1][col]) {
+                wqu.union(curr, mapTo1d(row, col + 1));
+            }
+            if (row > 1 && sites[row - 2][col - 1]) {
+                wqu.union(curr, mapTo1d(row - 1, col));
+            }
+            if (row < n && sites[row][col - 1]) {
+                wqu.union(curr, mapTo1d(row + 1, col));
+            }
+            openSites++;
+        }
     }
 }
