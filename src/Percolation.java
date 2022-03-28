@@ -74,4 +74,9 @@ public class Percolation {
     public int numberOfOpenSites(){
         return openSites;
     }
+
+    // does the system percolate?
+    public boolean percolates(){
+        return wqu.find(n * n) == wqu.find(n * n + 1);
+    }
 }
